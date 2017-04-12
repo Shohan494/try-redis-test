@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Shohan494/try-redis-test/issues"
   },
-  "homepage": "https://github.com/Shohan494/try-redis-test#readme"
+  "homepage": "https://github.com/Shohan494/try-redis-test#readme",
+  "dependencies": {
+    "redis": "^2.7.1"
+  }
 }
