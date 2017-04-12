@@ -1,0 +1,19 @@
+{
+  "name": "tryredis",
+  "version": "1.0.0",
+  "description": "redis testing and learning",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shohan494/try-redis-test.git"
+  },
+  "author": "Shohan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shohan494/try-redis-test/issues"
+  },
+  "homepage": "https://github.com/Shohan494/try-redis-test#readme"
+}
