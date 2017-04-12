@@ -1,18 +1,21 @@
 # try-redis-test
-Learning baby steps of Redis
+## Learning baby steps of Redis
 
-1. SET server:name "fido"
+## 1
+Commands:
 
-
+    SET server:name "fido"
     SET connections 10
     INCR connections => 11
     INCR connections => 12
     DEL connections
     INCR connections => 1
 
-2. incr prevents from some problem like accessing same data in the same time by different users.
+## 2 
+incr prevents from some problem like accessing same data in the same time by different users.
 
-3. Redis can be told that a key should only exist for a certain length of time. This is accomplished with the EXPIRE and TTL commands.
+## 3
+Redis can be told that a key should only exist for a certain length of time. This is accomplished with the EXPIRE and TTL commands.
 
 
     SET resource:lock "Redis Demo"
@@ -34,7 +37,8 @@ The -2 for the TTL of the key means that the key does not exist (anymore). A -1 
     SET resource:lock "Redis Demo 2"
     TTL resource:lock => -1
 
-4. Redis also supports several more complex data structures. The first one we'll look at is a list. A list is a series of ordered values. Some of the important commands for interacting with lists are RPUSH, LPUSH, LLEN, LRANGE, LPOP, and RPOP. You can immediately begin working with a key as a list, as long as it doesn't already exist as a different type.
+## 4
+Redis also supports several more complex data structures. The first one we'll look at is a list. A list is a series of ordered values. Some of the important commands for interacting with lists are RPUSH, LPUSH, LLEN, LRANGE, LPOP, and RPOP. You can immediately begin working with a key as a list, as long as it doesn't already exist as a different type.
 
 RPUSH puts the new value at the end of the list.
 
@@ -54,7 +58,8 @@ LRANGE gives a subset of the list. It takes the index of the first element you w
     LRANGE friends 0 1 => 1) "Sam", 2) "Alice"
     LRANGE friends 1 2 => 1) "Alice", 2) "Bob"
 
-5. LLEN returns the current length of the list.
+## 5
+LLEN returns the current length of the list.
 
 
     LLEN friends => 3
@@ -75,7 +80,8 @@ Note that the list now only has one element:
     LLEN friends => 1
     LRANGE friends 0 -1 => 1) "Alice"
 
-6. The next data structure that we'll look at is a set. A set is similar to a list, except it does not have a specific order and each element may only appear once. Some of the important commands in working with sets are SADD, SREM, SISMEMBER, SMEMBERS and SUNION.
+## 6
+The next data structure that we'll look at is a set. A set is similar to a list, except it does not have a specific order and each element may only appear once. Some of the important commands in working with sets are SADD, SREM, SISMEMBER, SMEMBERS and SUNION.
 
 SADD adds the given value to the set.
 
@@ -89,7 +95,8 @@ SREM removes the given value from the set.
 
     SREM superpowers "reflexes"
 
-7. SISMEMBER tests if the given value is in the set. It returns 1 if the value is there and 0 if it is not.
+## 7
+SISMEMBER tests if the given value is in the set. It returns 1 if the value is there and 0 if it is not.
 
 
     SISMEMBER superpowers "flight" => 1
@@ -107,7 +114,8 @@ SUNION combines two or more sets and returns the list of all elements.
     SADD birdpowers "flight"
     SUNION superpowers birdpowers => 1) "pecking", 2) "x-ray vision", 3) "flight"
 
-8. Sets are a very handy data type, but as they are unsorted they don't work well for a number of problems. This is why Redis 1.2 introduced Sorted Sets.
+## 8 
+Sets are a very handy data type, but as they are unsorted they don't work well for a number of problems. This is why Redis 1.2 introduced Sorted Sets.
 
 A sorted set is similar to a regular set, but now each value has an associated score. This score is used to sort the elements in the set.
 
@@ -126,7 +134,8 @@ In these examples, the scores are years of birth and the values are the names of
 
     ZRANGE hackers 2 4 => 1) "Claude Shannon", 2) "Alan Kay", 3) "Richard Stallman"
 
-9. Simple strings, sets and sorted sets already get a lot done but there is one more data type Redis can handle: Hashes.
+## 9
+Simple strings, sets and sorted sets already get a lot done but there is one more data type Redis can handle: Hashes.
 
 Hashes are maps between string fields and string values, so they are the perfect data type to represent objects (eg: A User with a number of fields like name, surname, age, and so forth):
 
@@ -150,7 +159,8 @@ If you only need a single field value that is possible as well:
 
     HGET user:1001 name => "Mary Jones"
 
-10. Numerical values in hash fields are handled exactly the same as in simple strings and there are operations to increment this value in an atomic way.
+## 10
+Numerical values in hash fields are handled exactly the same as in simple strings and there are operations to increment this value in an atomic way.
 
 
     HSET user:1000 visits 10
